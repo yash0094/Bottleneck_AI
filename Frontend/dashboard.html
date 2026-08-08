@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlowLens — Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><div class="logo"></div><span>FlowLens</span></div>
+    <nav>
+      <a href="dashboard.html" class="active">Home</a>
+      <a href="upload.html">Upload</a>
+    </nav>
+    <div class="user">
+      <span id="userName"></span>
+      <button onclick="logout()">Log out</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card" id="welcomeCard">
+      <h2>Good to see you, <span id="welcomeName"></span></h2>
+      <p class="muted">Upload operations data and FlowLens will find your pipeline's weakest link.</p>
+      <div class="grid-2" style="margin-top: 14px;">
+        <a href="upload.html"><button class="primary">+ New upload</button></a>
+        <div>
+          <label style="margin-top:0">Bottleneck sensitivity (z-score threshold)</label>
+          <input type="number" id="zThreshold" step="0.1" min="0" style="max-width:140px" />
+          <button class="secondary" style="margin-top:8px" onclick="saveThreshold()">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Your datasets</h2>
+      <div id="datasetsList"><div class="empty-state">Loading...</div></div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

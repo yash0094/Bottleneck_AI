@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlowLens — Upload data</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><div class="logo"></div><span>FlowLens</span></div>
+    <nav>
+      <a href="dashboard.html">Home</a>
+      <a href="upload.html" class="active">Upload</a>
+    </nav>
+    <div class="user">
+      <span id="userName"></span>
+      <button onclick="logout()">Log out</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h2>Load your process data</h2>
+      <p class="muted">One row per item, per stage — with an entry and exit time. Column names are matched flexibly.</p>
+
+      <label for="datasetName">Dataset name (optional)</label>
+      <input type="text" id="datasetName" placeholder="e.g. Q3 order fulfillment" />
+
+      <label>File</label>
+      <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+        <div id="dropzoneText">Drag &amp; drop a CSV or Excel file here, or click to browse (up to 20MB)</div>
+        <input type="file" id="fileInput" accept=".csv,.xlsx,.xls" />
+      </div>
+      <button class="primary" id="uploadBtn" onclick="handleUpload()" disabled>Upload &amp; continue</button>
+    </div>
+
+    <div class="card">
+      <h2>Or import from Google Sheets</h2>
+      <p class="muted">The sheet must be shared as "Anyone with the link can view".</p>
+      <label for="sheetUrl">Google Sheet URL</label>
+      <input type="url" id="sheetUrl" placeholder="https://docs.google.com/spreadsheets/d/..." />
+      <button class="primary" id="sheetBtn" onclick="handleSheetImport()">Import sheet</button>
+    </div>
+
+    <div class="error-box" id="errorBox"></div>
+    <div id="successBox"></div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/upload.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlowLens — Log in</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="brand"><div class="logo"></div><span>FlowLens</span></div>
+      <h1>Find your process's weakest link</h1>
+      <p class="sub">Upload your operations data. Get a plain-English bottleneck report in seconds.</p>
+
+      <div class="tabs">
+        <button id="tabLogin" class="active" onclick="switchTab('login')">Log in</button>
+        <button id="tabSignup" onclick="switchTab('signup')">Sign up</button>
+      </div>
+
+      <form id="loginForm" onsubmit="return false;">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" placeholder="you@company.com" required />
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" placeholder="••••••••" required />
+        <button class="primary" id="loginBtn" onclick="handleLogin()">Log in</button>
+      </form>
+
+      <form id="signupForm" style="display:none" onsubmit="return false;">
+        <label for="signupName">Name</label>
+        <input type="text" id="signupName" placeholder="Jane Doe" required />
+        <label for="signupEmail">Email</label>
+        <input type="email" id="signupEmail" placeholder="you@company.com" required />
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" placeholder="At least 6 characters" required />
+        <button class="primary" id="signupBtn" onclick="handleSignup()">Create account</button>
+      </form>
+
+      <div class="error-box" id="errorBox"></div>
+      <p class="hint">By continuing you agree to FlowLens' Terms &amp; Privacy Policy.</p>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
